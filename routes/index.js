@@ -11,7 +11,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use("/", router);
 
 var router = express.Router();
 
@@ -22,5 +21,7 @@ router.get("/movies", (req, res) => {
     .then((response) => response.json())
     .then((data) => res.json({ movies: data.results }));
 });
+
+app.use("/", router);
 
 module.exports = router;
