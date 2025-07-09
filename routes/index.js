@@ -6,7 +6,6 @@ const app = express();
 const PORT = 3001;
 const cors = require("cors");
 
-app.use(cors());
 const corsOptions = {
   origin: "https://front-mymovies5.vercel.app",
 };
