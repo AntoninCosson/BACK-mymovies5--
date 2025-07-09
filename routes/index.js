@@ -11,7 +11,7 @@ app.use(
   })
 );
 
-app.use("/movies, moviesRouter");
+const moviesRoutes = require("./movies");
 app.use("/", moviesRoutes);
 
 module.exports = router;
