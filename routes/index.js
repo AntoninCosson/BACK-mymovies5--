@@ -7,6 +7,7 @@ const PORT = 3001;
 const cors = require("cors");
 
 app.use(cors());
+app.use("/", router);
 
 var router = express.Router();
 
