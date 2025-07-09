@@ -14,4 +14,6 @@ app.use(
 const moviesRoutes = require("./movies");
 app.use("/", moviesRoutes);
 
-module.exports = router;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
