@@ -15,4 +15,5 @@ router.get("/movies", (req, res) => {
     .then((data) => res.json({ movies: data.results }));
 });
 
+app.use(express.json());
 module.exports = router;
