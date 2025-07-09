@@ -3,17 +3,16 @@ require("dotenv").config();
 var express = require("express");
 const fetch = require("node-fetch");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = 3001;
 
-app.use(
-  cors({
-    origin: "https://front-mymovies5.vercel.app",
-  })
-);
+var router = express.Router();
 
-const moviesRoutes = require("./movies");
-app.use("/", moviesRoutes);
+const TMDB_API_KEY = process.env.TMDB_API_KEY;
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+router.get("/movies", (req, res) => {
+  fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${TMDB_API_KEY}`)
+    .then((response) => response.json())
+    .then((data) => res.json({ movies: data.results }));
 });
+
+module.exports = router;
