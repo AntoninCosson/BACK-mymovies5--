@@ -4,6 +4,8 @@ var express = require("express");
 const fetch = require("node-fetch");
 const cors = require("cors");
 
+const moviesRouter = require("./routes/movies");
+
 const app = express();
 // const PORT = 3001;
 
@@ -24,5 +26,6 @@ router.get("/movies", (req, res) => {
 });
 
 app.use("/", router);
+app.use("/movies", moviesRouter);
 
 module.exports = router;
