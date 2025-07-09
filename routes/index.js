@@ -2,18 +2,8 @@ require("dotenv").config();
 
 var express = require("express");
 const fetch = require("node-fetch");
-const cors = require("cors");
-
-const moviesRouter = require("./routes/movies");
-
 const app = express();
-// const PORT = 3001;
-
-const corsOptions = {
-  origin: "https://front-mymovies5.vercel.app",
-};
-
-app.use(cors(corsOptions));
+const PORT = 3001;
 
 var router = express.Router();
 
@@ -24,8 +14,5 @@ router.get("/movies", (req, res) => {
     .then((response) => response.json())
     .then((data) => res.json({ movies: data.results }));
 });
-
-app.use("/", router);
-app.use("/movies", moviesRouter);
 
 module.exports = router;
