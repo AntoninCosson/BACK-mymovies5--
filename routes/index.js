@@ -6,12 +6,6 @@ const app = express();
 const PORT = 3001;
 
 var router = express.Router();
-const router = require("./index");
-
-const cors = require("cors");
-const corsOptions = {
-  origin: "https://front-mymovies5.vercel.app",
-};
 
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
 
@@ -20,8 +14,5 @@ router.get("/movies", (req, res) => {
     .then((response) => response.json())
     .then((data) => res.json({ movies: data.results }));
 });
-
-app.use(cors(corsOptions));
-app.use("/", router);
 
 module.exports = router;
