@@ -2,9 +2,10 @@ require("dotenv").config();
 
 var express = require("express");
 const fetch = require("node-fetch");
+const cors = require("cors");
+
 const app = express();
 // const PORT = 3001;
-const cors = require("cors");
 
 const corsOptions = {
   origin: "https://front-mymovies5.vercel.app",
